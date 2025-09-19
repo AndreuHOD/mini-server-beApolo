@@ -12,7 +12,7 @@ export const getUser = (id: number): Promise<user | null> => {
   });
 };
 
-export const createUser = (userObj: user): Promise<user> => {
+export const createUser = (userObj: UserDto): Promise<user> => {
   console.log("Creating user:", userObj);
   return prismaClient.user.create({
     data: userObj,

@@ -38,6 +38,33 @@
 			"user": {
 				"$ref": "#/components/schemas/DefaultSelection_Prisma._36_userPayload_",
 				"description": "Model user"
+			},
+			"UserDto": {
+				"properties": {
+					"name": {
+						"type": "string",
+						"nullable": true
+					},
+					"email": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string",
+						"nullable": true
+					},
+					"hola": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"required": [
+					"name",
+					"email",
+					"status",
+					"hola"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -93,7 +120,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/user"
+								"$ref": "#/components/schemas/UserDto"
 							}
 						}
 					}
@@ -136,7 +163,7 @@
 		},
 		"/users/aaa": {
 			"get": {
-				"operationId": "GetUsersDto",
+				"operationId": "GetAAA",
 				"responses": {
 					"200": {
 						"description": "Ok",

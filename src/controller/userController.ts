@@ -2,12 +2,12 @@ import { Body, Controller, Get, Path, Post, Route } from "tsoa";
 import { user } from "@prisma/client";
 import { getUser, getUsers, createUser } from "../services/userService";
 import { UserDto } from "../dto/userDto";
-import { get } from "http";
 
 @Route("users")
 export class UserController extends Controller {
   @Get("/")
   public async getAllUsers(): Promise<user[]> {
+    console.log("Fetching all users");
     return getUsers();
   }
 
@@ -17,7 +17,8 @@ export class UserController extends Controller {
   }
 
   @Post("/")
-  public async createUser(@Body() userData: user): Promise<user> {
+  public async createUser(@Body() userData: UserDto): Promise<user> {
+    console.log("Received user data:", userData);
     return createUser(userData);
   }
 

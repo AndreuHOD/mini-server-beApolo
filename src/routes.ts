@@ -22,6 +22,17 @@ const models: TsoaRoute.Models = {
         "type": {"ref":"DefaultSelection_Prisma._36_userPayload_","validators":{}},
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "UserDto": {
+        "dataType": "refObject",
+        "properties": {
+            "name": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "email": {"dataType":"string","required":true},
+            "status": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+            "hola": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"enum","enums":[null]}],"required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 };
 const templateService = new ExpressTemplateService(models, {"noImplicitAdditionalProperties":"throw-on-extras","bodyCoercion":true});
 
@@ -99,7 +110,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         const argsUserController_createUser: Record<string, TsoaRoute.ParameterSchema> = {
-                userData: {"in":"body","name":"userData","required":true,"ref":"user"},
+                userData: {"in":"body","name":"userData","required":true,"ref":"UserDto"},
         };
         app.post('/users',
             ...(fetchMiddlewares<RequestHandler>(UserController)),
@@ -128,24 +139,24 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        const argsUserController_getUsersDto: Record<string, TsoaRoute.ParameterSchema> = {
+        const argsUserController_getAAA: Record<string, TsoaRoute.ParameterSchema> = {
         };
         app.get('/users/aaa',
             ...(fetchMiddlewares<RequestHandler>(UserController)),
-            ...(fetchMiddlewares<RequestHandler>(UserController.prototype.getUsersDto)),
+            ...(fetchMiddlewares<RequestHandler>(UserController.prototype.getAAA)),
 
-            async function UserController_getUsersDto(request: ExRequest, response: ExResponse, next: any) {
+            async function UserController_getAAA(request: ExRequest, response: ExResponse, next: any) {
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
             let validatedArgs: any[] = [];
             try {
-                validatedArgs = templateService.getValidatedArgs({ args: argsUserController_getUsersDto, request, response });
+                validatedArgs = templateService.getValidatedArgs({ args: argsUserController_getAAA, request, response });
 
                 const controller = new UserController();
 
               await templateService.apiHandler({
-                methodName: 'getUsersDto',
+                methodName: 'getAAA',
                 controller,
                 response,
                 next,
